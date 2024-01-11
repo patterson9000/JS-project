@@ -1,0 +1,30 @@
+/* Add your desired styles for the checkout page here */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .tbl-cart {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  .tbl-cart th,
+  .tbl-cart td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tbl-cart tfoot td {
+    font-weight: bold;
+  }
+  
+  .checkout-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

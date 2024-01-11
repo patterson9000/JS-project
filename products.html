@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="products.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/OIP.jpg" alt="" />
+            </div>
+            <div>
+                <h1 class="FSG">Combative Grappling</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li class="cart">
+                    <a href="cart.html">
+                        <ion-icon name="basket"></ion-icon>
+                        Cart <span>0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+        <div class="container">
+            <div class="card">
+                <img src="img/gi.jpg" alt="gi" />
+                <h3>Gi</h3>
+                <h3>$99</h3>
+                <a class="add-cart cart1" href="#">Add to Cart</a>
+            </div>
+
+            <div class="card">
+                <img src="img/belt.jpg" alt="belt" />
+                <h3>Belt</h3>
+                <h3>$19</h3>
+                <a class="add-cart cart2" href="#">Add to Cart</a>
+            </div>
+
+            <div class="card">
+                <img src="img/head_gear.jpg" alt="Head Gear" />
+                <h3>Head Gear</h3>
+                <h3>$19</h3>
+                <a class="add-cart cart3" href="#">Add to Cart</a>
+            </div>
+
+            <div class="card">
+                <img src="img/10th_P.png" alt="Rash Guards" />
+                <h3>Rash Guards</h3>
+                <h3>$29</h3>
+                <a class="add-cart cart4" href="#">Add to Cart</a>
+            </div>
+            <div class="card">
+                <img src="img/knee_sleeve.jpg" alt="knee sleeve" />
+                <h3>knee sleeve</h3>
+                <h3>$19</h3>
+                <a class="add-cart cart5" href="#">Add to Cart</a>
+            </div>
+            <div class="card">
+                <img src="img/Wshoes.jpg" alt=">Wrestling Shoes" />
+                <h3>>Wrestling Shoes</h3>
+                <h3>$49</h3>
+                <a class="add-cart cart6" href="#">Add to Cart</a>
+            </div>
+            <div class="card">
+                <img src="img/mouth_guard_.jpg" alt="Mouth guard" />
+                <h3>Mouth guard</h3>
+                <h3>$20</h3>
+                <a class="add-cart cart7" href="#">Add to Cart</a>
+            </div>
+            <div class="card">
+                <img src="img/defense.jpg" alt="Defense BodyWash" />
+                <h3>Defense BodyWash</h3>
+                <h3>$10</h3>
+                <a class="add-cart cart8" href="#">Add to Cart</a>
+            </div>
+
+        </div>
+    
+    <br />
+
+    <div>
+        <a href="checkout.html" class="checkout-btn">
+            <button class="add-to-cart-btn">Checkout</button>
+        </a>
+    </div>
+    <script>
+      fetch("")
+      import { ApifyClient } from 'apify-client';
+
+      // Initialize the ApifyClient with API token
+      const client = new ApifyClient({
+          token: '<9P3FZJol>',
+      });
+      
+      // Prepare actor input
+      const input = {
+          "maxRequestsPerCrawl": 20,
+          "extendOutputFunction": async ({ data, item, product, images, fns, name, request, variants, context, customData, input, Apify }) => {
+            return item;
+          },
+          "extendScraperFunction": async ({ fns, customData, Apify, label }) => {
+           
+          },
+          "customData": {},
+          "maxConcurrency": 20,
+          "maxRequestRetries": 3
+      };
+      
+      (async () => {
+          // Run the actor and wait for it to finish
+          const run = await client.actor("mshopik/bjj-fanatics-scraper").call(input);
+      
+          // Fetch and print actor results from the run's dataset (if any)
+          console.log('Results from dataset');
+          const { items } = await client.dataset(run.defaultDatasetId).listItems();
+          items.forEach((item) => {
+              console.dir(item);
+          });
+      })();
+      
+      
+    </script>
+
+</body>
+</html>

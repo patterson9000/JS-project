@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps.css">
+  <script src="map.js"></script>
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps-web.min.js"></script>
+</head>
+
+<body>
+
+   <nav>
+      <div class="logo">
+        <img src="img/OIP.jpg" alt="">
+      </div>
+      <div>
+          <h1 class="FSG">Combative Grappling</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="map.html">Location</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="sign_up.html">Sign Up</a></li>
+      </ul>
+    </nav>
+   
+   <header>
+      <h1>
+         Maps
+      </h1>
+   </header>
+
+   <section>
+      <h1>San Diego Routes</h1>
+      <p>Choose an origin and a destination of your cycling outing</p>
+      
+      <fieldset>
+         <select id="startingPoint" size="7">
+            <option value="" selected>Starting Point</option>
+            <option value="Del Mar Heights, San Diego, CA">Del Mar Heights</option>
+            <option value="City Heights,  San Diego, CA">City Heights</option>
+            <option value="La Jolla,  San Diego, CA">La Jolla</option>
+            <option value="North Park,  San Diego, CA">North Park</option>
+            <option value="Clairemont,  San Diego, CA">Clairemont</option>
+            <option value="Downtown,  San Diego, CA">Downtown</option>
+            <option value="Pacific Beach,  San Diego, CA">Pacific Beach</option>  
+            <option value="Point Loma,  San Diego, CA">Point Loma</option>
+            <option value="Ocean Beach,  San Diego, CA">Ocean Beach</option>
+            <option value="" selected>Starting Point</option>
+         </select>
+         
+         <select id="endingPoint" size="7">
+            <option value="Del Mar Heights, San Diego, CA">Del Mar Heights</option>
+            <option value="City Heights,  San Diego, CA">City Heights</option>
+            <option value="La Jolla,  San Diego, CA">La Jolla</option>
+            <option value="North Park,  San Diego, CA">North Park</option>
+            <option value="Clairemont,  San Diego, CA">Clairemont</option>
+            <option value="Downtown,  San Diego, CA">Downtown</option>
+            <option value="Pacific Beach,  San Diego, CA">Pacific Beach</option>  
+            <option value="Point Loma,  San Diego, CA">Point Loma</option>
+            <option value="Ocean Beach,  San Diego, CA">Ocean Beach</option>
+            <option value="" selected>Ending Point</option>
+            
+         </select>
+      </fieldset>
+      
+      <div id ="map"></div>
+      
+   </section>
+</body>
+<script type="text/javascript">
+   let center = [-117.161084, 32.7157]
+   const map = tt.map({
+     key: "kHmhtxRPWf4atm0ZVTTLXJ2yId7djI9A",
+     container: "map",
+     center: center,
+     zoom: 10
+   })
+   map.on('load', () => {
+     new tt.Marker().setLngLat(center).addTo(map)
+   })
+ </script>
+</html>

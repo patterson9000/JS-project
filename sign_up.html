@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <script src="sign_up.js"></script>
+  <link rel="stylesheet" href="sign_up.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Sign Up</h1>
+
+      <form id="myForm" onsubmit="validateForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Gender:</label>
+        <input type="checkbox" name="gender" id="male" value="male">
+        <label for="male">Male</label>
+        <input type="checkbox" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+
+        <label for="country">Country:</label>
+        <select id="country" required>
+          <option value="">Select Country</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+          <option value="canada">Canada</option>
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+
+        <label>
+          <input type="checkbox" id="agree" required> I agree to the terms and conditions.
+        </label>
+
+        <a href="home.html" class="home-btn">
+        <button type="submit">Submit</button>
+      </a>
+      </form>
+
+      <div id="error-message">Please fill in all fields and agree to the terms.</div>
+    </div>
+  </div>
+</body>
+</html>
