@@ -5,6 +5,53 @@ body {
   height: 100vh;
   background-color: rgba(255, 217, 0, 0.699);
 }
+/*nav*/
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: gold;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 5px solid black;
+  z-index: 1000; /* To ensure it's above other content */
+}
+
+/* ... (other CSS styles) ... */
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+h1{
+  font-size: xx-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-right: 10px;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.nav-links a:hover {
+  background-color: #555;
+  border-radius: 3px;
+}
 
 .container {
   width: 400px;
