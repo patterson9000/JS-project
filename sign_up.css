@@ -11,7 +11,7 @@ nav {
   top: 0;
   width: 100%;
   background-color: gold;
-  color: black;
+  color: black; 
   display: flex;
   justify-content: space-between;
   align-items: center;
