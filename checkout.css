@@ -28,3 +28,20 @@ body {
     margin-top: 20px;
   }
   
+  footer {
+    background-color: gold;
+    padding: 10px;
+    position:relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black;
+  }
+  
+  .copy{
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+  
+  }
+  
+  
