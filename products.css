@@ -126,11 +126,6 @@ p#total-cost {
   cursor: pointer;
 }
 
-.checkout-btn {
-  text-align: center;
-  margin-top: 20px;
-}
-
 .add-to-cart-btn {
   background-color: gold;
   color: black;

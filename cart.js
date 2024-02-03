@@ -2,7 +2,7 @@ function onLoadCartNumbers() {
   let productNumbers = localStorage.getItem("cartNumbers");
 
   if (productNumbers) {
-    document.querySelector('.cart span').textContent = productNumbers;
+      document.querySelector('.cart span').textContent = productNumbers;
   }
 }
 
@@ -13,18 +13,45 @@ function cartNumbers(index) {
   localStorage.setItem("cartNumbers", productNumbers + 1);
   document.querySelector('.cart span').textContent = productNumbers + 1;
 
+  // Assuming you have a 'products' array defined globally
   products[index].inCart += 1;
+}
+
+function removeItem(index) {
+  let productNumbers = localStorage.getItem("cartNumbers");
+  let cartItems = localStorage.getItem("productsInCart");
+  productNumbers = parseInt(productNumbers) || 0;
+
+  if (productNumbers > 0) {
+      localStorage.setItem("cartNumbers", productNumbers - 1);
+      document.querySelector('.cart span').textContent = productNumbers - 1;
+
+      let updatedCartItems = JSON.parse(cartItems);
+      if (updatedCartItems[index].inCart > 0) {
+          updatedCartItems[index].inCart -= 1;
+          localStorage.setItem("productsInCart", JSON.stringify(updatedCartItems));
+
+          // Implement additional logic to update the display or perform other actions if needed
+          // For example, you might want to remove the HTML element corresponding to the removed item
+      }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   onLoadCartNumbers();
 
+  // Assuming you have elements with class 'add-cart', 'remove-item', and 'btn-danger'
   let carts = document.querySelectorAll(".add-cart");
+  let removeButtons = document.querySelectorAll(".remove-item");
 
   for (let i = 0; i < carts.length; i++) {
-    carts[i].addEventListener('click', () => {
-      cartNumbers(i);
-    });
+      carts[i].addEventListener('click', () => {
+          cartNumbers(i);
+      });
+
+      removeButtons[i].addEventListener('click', () => {
+          removeItem(i);
+      });
   }
 });
 
